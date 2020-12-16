@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".customized.AddCustomizedActivity"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="나만의 포션 추가하기"
+        android:textAlignment="center"
+        android:textSize="36dp"
+        android:layout_marginBottom="40dp"></TextView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="STEP1. 이름 입력하기"
+            android:textSize="18dp"
+
+            />
+        <EditText
+            android:id="@+id/name_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(필수)"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="32dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="STEP2. 제조사 입력하기"
+            android:textSize="18dp"
+            />
+        <EditText
+            android:id="@+id/factory_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(옵션)"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="32dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="STEP3. 효과 입력하기"
+            android:textSize="18dp"
+            />
+        <EditText
+            android:id="@+id/effect_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(필수)"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="32dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="STEP4. 섭취 방법 입력하기"
+
+            android:textSize="18dp"
+            />
+        <EditText
+            android:id="@+id/way_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(옵션)"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="32dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="STEP5. 주의 사항 또는 메모 입력하기"
+            android:textSize="18dp"
+            />
+        <EditText
+            android:id="@+id/remark_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(옵션)"
+            android:inputType="textMultiLine"
+            android:lines="2"
+            />
+        </LinearLayout>
+    </ScrollView>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <Button
+                android:id="@+id/customized_finish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:text="FINISH"/>
+        </FrameLayout>
+
+
+</LinearLayout>
