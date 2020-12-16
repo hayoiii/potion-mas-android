@@ -1,51 +1,6 @@
 const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI;
 
-const materialSchema = mongoose.Schema({
-    SKLL_IX_IRDNT_RAWMTRL: {
-        type: String,
-        required: false
-    },
-    LAST_UPDT_DTM: {
-        type: String,
-        required: false
-    },
-
-    INTK_UNIT: {
-        type: String,
-        required: false
-    },
-    IFTKN_ATNT_MATR_CN: {
-        type: String,
-        required: false
-    },
-    DAY_INTK_HIGHLIMIT: {
-        type: String,
-        required: false
-    },
-    PRDCT_NM: {
-        type: String,
-        required: false
-    },
-    CRET_DTM: {
-        type: String,
-        required: false
-    },
-
-    DAY_INTK_LOWLIMIT: {
-        type: String,
-        required: false
-    },
-    PRIMARY_FNCLTY: {
-        type: String,
-        required: false
-    },
-    INTK_MEMO: {
-        type: String,
-        required: false
-    }
-});
-
 const customizedSchema = mongoose.Schema({
     id: {
         type: Number,
@@ -93,38 +48,10 @@ const connect = () => {
 
 exports.handler = (event, context, callback) => {
     let operation = event.httpMethod;
-    let Material = mongoose.model('material', materialSchema, 'material');
     let Customized = mongoose.model('customized', customizedSchema, 'customized');
     let resource = event.resource;
     console.log(event);
-
-
-    /***성분 검색****/
-    if (resource == '/material') {
-        /*Operation: GET*/
-        let query = {};
-        // 성분명으로 검색
-        if (event.params.querystring.name) {
-            query.PRDCT_NM = { $regex: '.*' + event.params.querystring.name + '.*' };
-        }
-        // 효능으로 검색
-        if (event.params.querystring.effect) {
-            query.PRIMARY_FNCLTY = { $regex: '.*' + event.params.querystring.effect + '.*' }
-        }
-        console.log("query",query);
-        connect().then(() =>
-            Material.find(query)
-                .exec(function (error, materials) {
-                    if (error) {
-                        error.statusCode = 401;
-                        context.done(null, error);
-                    }
-                    else {
-                        context.done(null, materials);
-                    }
-                }));
-    }
-
+    
     /*** 사용자 정의 아이템 ***/
     if (resource == '/customized') {
         switch (operation) {
